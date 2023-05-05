@@ -46,6 +46,7 @@ export default function Home({ pageData }) {
             fill
             alt={homeImage[0].fields.title}
             style={{ objectFit: "cover", objectPosition: "center" }}
+            loader={() => homeImage[0].fields.file.url}
           />
         </div>
       </main>
