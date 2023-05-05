@@ -30,8 +30,6 @@ export default function Home({ pageData }) {
     (asset) => asset.sys.id === homeImageID
   );
 
-  console.log("homeImage: ", homeImage);
-
   return (
     <Layout>
       <Head>
@@ -41,7 +39,6 @@ export default function Home({ pageData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={classes.Home}>
-        {console.log("PD: ", pageData)}
         <div>Hello there</div>
         <div className={classes.Home__Image}>
           <Image
