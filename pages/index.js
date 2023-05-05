@@ -2,12 +2,36 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Layout from "@/Components/Layout/Layout";
+import { fetchAPI } from "@/lib/api";
 
-import classes from "./index.module.scss"
+import classes from "./index.module.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export async function getStaticProps() {
+  const [pageData] = await Promise.all([
+    fetchAPI(
+      `/entries?access_token=${process.env.CONTENTFUL_TOKEN}&content_type=home`
+    ),
+  ]);
+  return {
+    props: {
+      pageData: pageData,
+    },
+  };
+}
+
+export default function Home({ pageData }) {
+  // CONTENTFUL HOME IMAGE ASSET ID (TO GET THE IMAGE INFO LATER)
+  const homeImageID = pageData.items[0].fields.homeImage.sys.id;
+
+  // CONTENTFUL'S HOME IMAGE
+  const homeImage = pageData.includes.Asset.filter(
+    (asset) => asset.sys.id === homeImageID
+  );
+
+  console.log("homeImage: ", homeImage);
+
   return (
     <Layout>
       <Head>
@@ -17,7 +41,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={classes.Home}>
+        {console.log("PD: ", pageData)}
         <div>Hello there</div>
+        <div className={classes.Home__Image}>
+          <Image
+            src={`http://${homeImage[0].fields.file.url}`}
+            fill
+            alt={homeImage[0].fields.title}
+            style={{ objectFit: "cover", objectPosition: "center" }}
+          />
+        </div>
       </main>
     </Layout>
   );
