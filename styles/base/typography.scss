@@ -1,0 +1,11 @@
+@import "../abstracts/variables.scss";
+
+body {
+  font-family: "merriweather";
+}
+
+
+p {
+  font-size: $default-font-size;
+  line-height: 1.8;
+}

@@ -1,0 +1,33 @@
+@import "../../../styles/abstracts/variables.scss";
+
+.Toolbar {
+  a {
+    border-bottom: none;
+    color: inherit;
+
+    &:hover {
+      color: $color-quaternary-darker;
+    }
+  }
+
+  background-image: linear-gradient(
+    to bottom right,
+    $color-primary,
+    $color-secondary
+  );
+  font-size: 4.88rem;
+  color: $color-quaternary-dark;
+
+  &__Inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+
+    &__Brand {
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+    }
+  }
+}
