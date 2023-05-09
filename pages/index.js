@@ -1,12 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
-import Layout from "@/Components/Layout/Layout";
 import { fetchAPI, getGlobalInfo, getBlogPostsInfo } from "@/lib/api";
+import Layout from "@/Components/Layout/Layout";
+import CommentForm from "@/Components/UI/Comments/CommentForm/CommentForm";
 
 import classes from "./index.module.scss";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export async function getStaticProps() {
   const [globalData, pageData, blogPostsData] = await Promise.all([
@@ -51,7 +50,7 @@ export default function Home({ globalData, pageData, blogPostsData }) {
           />
         </div>
 
-        <section className="row">
+        <section className="row u-margin-medium">
           {blogPostsData[0].attributes ? (
             <div className={classes.Home__BlogPost}>
               <div className={classes.Home__BlogPost__PrimaryImage}>
@@ -64,7 +63,10 @@ export default function Home({ globalData, pageData, blogPostsData }) {
                       .alternativeText
                   }
                   fill
-                  style={{ objectFit: "cover", objectPosition: "center" }}
+                  style={{ objectFit: "contain", objectPosition: "center" }}
+                  loader={() =>
+                    blogPostsData[0].attributes.PrimaryImage.data.attributes.url
+                  }
                 />
               </div>
               <div className={classes.Home__BlogPost__Title}>
@@ -79,11 +81,13 @@ export default function Home({ globalData, pageData, blogPostsData }) {
                   year: "numeric",
                 })}
               </div>
-              <div className={classes.Home__BlogPost__Body}
+              <div
+                className={classes.Home__BlogPost__Body}
                 dangerouslySetInnerHTML={{
                   __html: blogPostsData[0].attributes.Body,
                 }}
               ></div>
+              <CommentForm />
             </div>
           ) : null}
         </section>

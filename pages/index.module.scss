@@ -9,32 +9,39 @@
   }
 
   &__BlogPost {
-    margin: 5rem 0;
+    // margin: 5rem 0;
+    margin: auto;
 
     &__Title {
       font-size: 3.91rem;
-      margin-top: 2rem;
+      margin: auto;
+      margin-top: 4rem;
       margin-bottom: 1rem;
       font-weight: 300;
+      max-width: 90rem;
     }
 
     &__Date {
       font-size: 1.6rem;
+      margin: auto;
       margin-bottom: 2rem;
       font-weight: 700;
+      max-width: 90rem;
     }
 
     &__PrimaryImage {
       position: relative;
-      width: 40rem;
-      height: 20rem;
+      width: 100%;
+      height: 40rem;
+      max-width: 100rem;
+      margin: auto;
     }
 
     &__Body {
       p {
         max-width: 90rem;
+        margin: auto;
         margin-bottom: 2.5rem;
-        // margin: auto;
       }
     }
   }
