@@ -18,7 +18,6 @@ const Comments = ({ data }) => (
         <div>{comment.attributes.Message}</div>
       </div>
     ))}
-    {console.log("D: ", data)}
   </div>
 );
 
