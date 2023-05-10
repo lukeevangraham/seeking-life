@@ -7,13 +7,17 @@ const Comments = ({ data }) => (
       <div key={comment.id} className={classes.Comments__Comment}>
         <div>{comment.attributes.Name}</div>
         <div>
-          {new Date(comment.attributes.updatedAt).toLocaleString("en-US", {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-            hour: "numeric",
-            minute: "numeric",
-          })}
+          {comment.attributes.updatedAt
+            ? new Date(comment.attributes.updatedAt)
+                .toLocaleString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                  hour: "numeric",
+                  minute: "numeric",
+                })
+                .replace(/\s/g, " ")
+            : null}
         </div>
         <div>{comment.attributes.Message}</div>
       </div>

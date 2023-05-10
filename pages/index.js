@@ -19,6 +19,7 @@ export async function getStaticProps() {
       pageData: pageData,
       blogPostsData,
     },
+    revalidate: 1,
   };
 }
 
