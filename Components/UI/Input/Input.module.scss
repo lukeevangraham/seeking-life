@@ -1,3 +1,51 @@
-.Input {
-    
+@import "../../../styles/abstracts/variables.scss";
+@import "../../../styles/abstracts/mixins";
+
+.Form {
+  &__Group {
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
+    &__Input {
+      font-size: 1.5rem;
+      font-family: inherit;
+      padding: 1.2rem 1.7rem;
+      border-radius: 0.4rem;
+      background-color: $color-secondary-light;
+      border: 3px solid transparent;
+      width: 100%;
+      display: block;
+      transition: all 0.3s;
+
+      @include respond(tab-port) {
+        width: 100%;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+        border-bottom: 3px solid $color-secondary;
+      }
+
+      &:focus:invalid {
+        border-bottom: 2px solid $color-negative;
+      }
+    }
+
+    &__Label {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-left: 2rem;
+      margin-top: 0.7rem;
+      display: block;
+      transition: all 0.3s;
+    }
+
+    &__Input:placeholder-shown + &__Label {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4rem);
+    }
+  }
 }

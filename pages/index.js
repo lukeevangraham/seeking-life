@@ -2,10 +2,10 @@ import Head from "next/head";
 import Image from "next/image";
 import { fetchAPI, getGlobalInfo, getBlogPostsInfo } from "@/lib/api";
 import Layout from "@/Components/Layout/Layout";
+import Comments from "@/Components/UI/Comments/Comments";
 import CommentForm from "@/Components/UI/Comments/CommentForm/CommentForm";
 
 import classes from "./index.module.scss";
-
 
 export async function getStaticProps() {
   const [globalData, pageData, blogPostsData] = await Promise.all([
@@ -87,6 +87,7 @@ export default function Home({ globalData, pageData, blogPostsData }) {
                   __html: blogPostsData[0].attributes.Body,
                 }}
               ></div>
+              <Comments data={blogPostsData[0].attributes.sl_comments.data} />
               <CommentForm postId={blogPostsData[0].id} />
             </div>
           ) : null}

@@ -4,8 +4,21 @@ body {
   font-family: "merriweather";
 }
 
-
 p {
   font-size: $default-font-size;
   line-height: 1.8;
+}
+
+h1 {
+  font-size: 4.883rem;
+}
+h2 {
+  font-size: 3.906rem;
+}
+h3 {
+  font-size: 3.125rem;
+  margin-bottom: 4rem;
+}
+h4 {
+  font-size: 2.5rem;
 }

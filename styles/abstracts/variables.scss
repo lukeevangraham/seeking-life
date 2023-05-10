@@ -1,13 +1,20 @@
 // COLORS
 $color-primary: #cff09e;
+
 $color-secondary: #a8dba8;
+$color-secondary-light: lighten($color-secondary, 20%);
+
 $color-ternary: #79bd9a;
+
 $color-quaternary: #3b8686;
+
 $color-quaternary-dark: darken(#3b8686, 10);
 $color-quaternary-darker: darken(#3b8686, 20);
 
 $color-white: #eee;
 $color-black: #111;
+
+$color-negative: #df7a7a;
 
 // FONT
 $default-font-size: 2rem;

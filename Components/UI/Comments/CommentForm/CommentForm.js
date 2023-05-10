@@ -3,6 +3,8 @@ import axios from "axios";
 import Input from "../../Input/Input";
 import { getStrapiURL } from "@/lib/api";
 
+import classes from "./CommentForm.module.scss";
+
 const CommentForm = ({ postId }) => {
   const [commentStatus, setCommentStatus] = useState(null);
 
@@ -10,8 +12,6 @@ const CommentForm = ({ postId }) => {
     e.preventDefault();
 
     setCommentStatus(1);
-
-    console.log("Here: ", e.target.name.value);
 
     const res = await axios.post(`${getStrapiURL("/comments")}`, {
       data: {
@@ -23,33 +23,76 @@ const CommentForm = ({ postId }) => {
     });
 
     const result = await res;
-    console.log("res: ", result);
+
+    // NOW WE STORE THE NEW COMMENT ID WITH IT'S BLOG
+    const afterBlog = await postRes(result);
+
+    afterBlog.status === 200 ? setCommentStatus(200) : null;
   };
 
+  const postRes = async (commentInfo) => {
+    const req = await axios.put(
+      `${getStrapiURL(`/sl-blogs/${postId}?populate=*`)}`,
+      {
+        data: {
+          sl_comments: {
+            connect: [commentInfo.data.data.id],
+          },
+        },
+      }
+    );
+
+    const res = await req;
+    return res;
+  };
+
+  let morphingForm = "";
+
+  switch (commentStatus) {
+    case 200:
+      morphingForm = (
+        <div>
+          <h3>Your comment was successfully added</h3>
+        </div>
+      );
+      break;
+    case 1:
+      morphingForm = <div>Sending...</div>;
+      break;
+    default:
+      morphingForm = (
+        <form onSubmit={postComment} className={classes.Form}>
+          <Input
+            elementType="input"
+            name="name"
+            placeholder="Your Name"
+            required={true}
+            type="text"
+          />
+          <Input
+            elementType="input"
+            name="email"
+            placeholder="Your Email (never made public)"
+            required={true}
+            type="email"
+          />
+          <Input
+            elementType="textarea"
+            name="message"
+            placeholder="Your Message"
+            required={true}
+          />
+          <button>Submit</button>
+        </form>
+      );
+      break;
+  }
+
   return (
-    <form onSubmit={postComment}>
-      <Input
-        elementType="input"
-        name="name"
-        placeholder="Your Name"
-        required={true}
-        type="text"
-      />
-      <Input
-        elementType="input"
-        name="email"
-        placeholder="Your Email"
-        required={true}
-        type="email"
-      />
-      <Input
-        elementType="textarea"
-        name="message"
-        placeholder="Your Message"
-        required={true}
-      />
-      <button>Submit</button>
-    </form>
+    <div className={classes.Form}>
+      <h3>Leave a comment</h3>
+      {morphingForm}
+    </div>
   );
 };
 
