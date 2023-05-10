@@ -5,7 +5,7 @@ import { getStrapiURL } from "@/lib/api";
 
 import classes from "./CommentForm.module.scss";
 
-const CommentForm = ({ postId }) => {
+const CommentForm = ({ postId, updateComments }) => {
   const [commentStatus, setCommentStatus] = useState(null);
 
   const postComment = async (e) => {
@@ -26,6 +26,8 @@ const CommentForm = ({ postId }) => {
 
     // NOW WE STORE THE NEW COMMENT ID WITH IT'S BLOG
     const afterBlog = await postRes(result);
+
+    updateComments(afterBlog.data.data.attributes.sl_comments.data);
 
     afterBlog.status === 200 ? setCommentStatus(200) : null;
   };
@@ -49,13 +51,13 @@ const CommentForm = ({ postId }) => {
   let morphingForm = "";
 
   switch (commentStatus) {
-    case 200:
-      morphingForm = (
-        <div>
-          <h3>Your comment was successfully added</h3>
-        </div>
-      );
-      break;
+    // case 200:
+    //   morphingForm = (
+    //     <div>
+    //       <h3>Your comment was successfully added</h3>
+    //     </div>
+    //   );
+    //   break;
     case 1:
       morphingForm = <div>Sending...</div>;
       break;
