@@ -87,7 +87,7 @@ export default function Home({ globalData, pageData, blogPostsData }) {
                   __html: blogPostsData[0].attributes.Body,
                 }}
               ></div>
-              <CommentForm />
+              <CommentForm postId={blogPostsData[0].id} />
             </div>
           ) : null}
         </section>
