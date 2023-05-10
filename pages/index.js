@@ -48,7 +48,8 @@ export default function Home({ globalData, pageData, blogPostsData }) {
             fill
             alt={pageData.attributes.TopImage.data.attributes.alternativeText}
             style={{ objectFit: "cover", objectPosition: "center" }}
-            loader={() => pageData.attributes.TopImage.data.attributes.url}
+            priority
+            // loader={() => pageData.attributes.TopImage.data.attributes.url}
           />
         </div>
 

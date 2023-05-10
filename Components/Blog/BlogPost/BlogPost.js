@@ -19,7 +19,7 @@ const BlogPost = ({ post }) => {
             alt={post.attributes.PrimaryImage.data.attributes.alternativeText}
             fill
             style={{ objectFit: "contain", objectPosition: "center" }}
-            loader={() => post.attributes.PrimaryImage.data.attributes.url}
+            // loader={() => post.attributes.PrimaryImage.data.attributes.url}
           />
         </div>
       ) : null}
