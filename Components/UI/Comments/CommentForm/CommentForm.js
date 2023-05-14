@@ -14,6 +14,9 @@ const CommentForm = ({ postId, updateComments }) => {
     setCommentStatus(1);
 
     const res = await axios.post(`${getStrapiURL("/comments")}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+      },
       data: {
         Name: e.target.name.value,
         Email: e.target.email.value,

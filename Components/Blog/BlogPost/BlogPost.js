@@ -18,7 +18,7 @@ const BlogPost = ({ post }) => {
             src={post.attributes.PrimaryImage.data.attributes.url}
             alt={post.attributes.PrimaryImage.data.attributes.alternativeText}
             fill
-            style={{ objectFit: "contain", objectPosition: "center" }}
+            style={{ objectFit: "contain", objectPosition: "left" }}
             // loader={() => post.attributes.PrimaryImage.data.attributes.url}
           />
         </div>

@@ -1,0 +1,65 @@
+@import "../../../styles/abstracts/variables.scss";
+
+.Footer {
+  background-image: linear-gradient(
+    to bottom right,
+    $color-quaternary-darker,
+    $color-quaternary-dark
+  );
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  color: $color-white;
+  line-height: 3rem;
+
+  a {
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  &__Inner {
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+
+    &__Brand {
+      text-transform: uppercase;
+      font-size: 3.125rem;
+      font-weight: 300;
+      letter-spacing: 0.3rem;
+      margin-bottom: 3rem;
+    }
+
+    &__Social {
+      svg {
+        fill: $color-white;
+        height: 2.5rem;
+        width: 2.5rem;
+        opacity: 0.8;
+        transition: all 0.2s;
+
+        &:hover {
+          opacity: 0.33;
+        }
+      }
+    }
+  }
+
+  &__Bottom {
+    
+    &__Copyright {
+      padding-top: 3rem;
+      border-top: 1px solid rgba($color-white, 0.3);
+      font-size: 1.4rem;
+      margin-top: 1rem;
+      opacity: 0.7;
+    }
+
+    &__GWW {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25rem;
+      font-weight: 700;
+      opacity: 0.5;
+    }
+  }
+}

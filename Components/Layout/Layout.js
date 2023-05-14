@@ -1,5 +1,6 @@
 import Toolbar from "../Navigation/Toolbar/Toolbar";
 import NavigationItems from "../Navigation/NavigationItems/NavigationItems";
+import Footer from "../Navigation/Footer/Footer";
 
 import classes from "./Layout.module.scss";
 
@@ -14,6 +15,7 @@ const Layout = ({ global, children }) => (
       </div>
     </Toolbar>
     {children}
+    <Footer />
   </div>
 );
 
