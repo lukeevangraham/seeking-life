@@ -1,0 +1,42 @@
+@import "../../../styles/abstracts/variables.scss";
+
+.Pagination {
+  font-size: $default-font-size;
+  padding-bottom: 5rem;
+
+  ul {
+    display: flex;
+    gap: 1rem;
+
+    li {
+      display: inline-block;
+      cursor: pointer;
+      padding: 0 0.5rem .25rem .5rem;
+
+      a {
+        border-bottom: none;
+        color: $color-black;
+      }
+
+      &:hover {
+        background-color: $color-primary;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  &__active {
+    background-color: $color-secondary;
+    border-radius: 2px;
+    cursor: auto !important;
+
+    &:hover {
+      background-color: $color-secondary !important;
+    }
+  }
+
+  &__disable {
+    opacity: 0.3;
+    cursor: default !important;
+  }
+}

@@ -5,6 +5,7 @@ import Layout from "@/Components/Layout/Layout";
 import BlogPost from "../Components/Blog/BlogPost/BlogPost";
 import Comments from "@/Components/UI/Comments/Comments";
 import CommentForm from "@/Components/UI/Comments/CommentForm/CommentForm";
+import Pagination from "@/Components/UI/Pagination/Pagination";
 
 import classes from "./index.module.scss";
 
@@ -17,7 +18,7 @@ export async function getStaticProps() {
   return {
     props: {
       globalData,
-      pageData: pageData,
+      pageData: pageData.data,
       blogPostsData,
     },
     revalidate: 1,
@@ -54,9 +55,12 @@ export default function Home({ globalData, pageData, blogPostsData }) {
         </div>
 
         <section className="row u-margin-medium">
-          {blogPostsData.map((post) => (
+          {blogPostsData.data.map((post) => (
             <BlogPost post={post} key={post.id} />
           ))}
+        </section>
+        <section className="row u-margin-medium">
+          <Pagination pageData={blogPostsData.meta.pagination} />
         </section>
       </main>
     </Layout>
