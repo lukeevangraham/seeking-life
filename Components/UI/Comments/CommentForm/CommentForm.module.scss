@@ -1,32 +1,38 @@
 @import "../../../../styles/abstracts/variables.scss";
 
-.Form {
+.FormParent {
   max-width: 90rem;
   margin: auto;
   margin-top: 8rem;
-  padding-right: 13rem;
 
-  textarea {
-    resize: none;
-  }
+  &__Form {
+    max-width: 64rem;
+    // background-color: orangered;
+    // margin: auto;
+    // padding-right: 13rem;
 
-  button {
-    margin-top: 1rem;
-    padding: 1rem 3rem;
-    background-color: $color-quaternary;
-    border-radius: 0.4rem;
-    border: none;
-    font-family: inherit;
-    cursor: pointer;
-    color: $color-white !important;
-    transition: all 0.3s;
-
-    &:hover {
-      background-color: $color-quaternary-dark;
+    textarea {
+      resize: none;
     }
 
-    &:active {
-      transform: translateY(0.4rem);
+    button {
+      margin-top: 1rem;
+      padding: 1rem 3rem;
+      background-color: $color-quaternary;
+      border-radius: 0.4rem;
+      border: none;
+      font-family: inherit;
+      cursor: pointer;
+      color: $color-white !important;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: $color-quaternary-dark;
+      }
+
+      &:active {
+        transform: translateY(0.4rem);
+      }
     }
   }
 }

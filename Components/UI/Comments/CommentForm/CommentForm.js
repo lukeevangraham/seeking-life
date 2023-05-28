@@ -66,7 +66,7 @@ const CommentForm = ({ postId, updateComments }) => {
       break;
     default:
       morphingForm = (
-        <form onSubmit={postComment} className={classes.Form}>
+        <form onSubmit={postComment} className={classes.FormParent__Form}>
           <Input
             elementType="input"
             name="name"
@@ -94,7 +94,7 @@ const CommentForm = ({ postId, updateComments }) => {
   }
 
   return (
-    <div className={classes.Form}>
+    <div className={classes.FormParent}>
       <h3>Leave a comment</h3>
       {morphingForm}
     </div>
