@@ -10,7 +10,7 @@
     & > :first-child {
       // background-color: orangered;
       padding-top: 9rem;
-      border-top: 2px solid rgba($color-quaternary-dark, .33);
+      border-top: 2px solid rgba($color-quaternary-dark, 0.33);
     }
   }
 
@@ -42,15 +42,21 @@
   &__Body {
     p {
       max-width: 90rem;
-      margin: auto;
-      margin-bottom: 2.5rem;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     figure {
+      padding-bottom: 2.5rem;
+
       img {
         max-width: 100%;
       }
-      padding-bottom: 2.5rem;
+
+      figcaption {
+        font-size: 1.5rem;
+        padding-top: 1rem;
+      }
     }
 
     figure {

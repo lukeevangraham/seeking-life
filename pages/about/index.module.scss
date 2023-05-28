@@ -1,3 +1,14 @@
 .About {
-    background-color: orangered;
+  // background-color: orangered;
+
+  &__Body {
+    display: flex;
+    gap: 2rem;
+
+    &__Photo {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      height: 30rem;
+    }
+  }
 }
