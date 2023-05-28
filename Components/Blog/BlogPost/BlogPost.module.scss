@@ -10,7 +10,7 @@
     & > :first-child {
       // background-color: orangered;
       padding-top: 9rem;
-      border-top: 2px solid $color-quaternary-dark;
+      border-top: 2px solid rgba($color-quaternary-dark, .33);
     }
   }
 

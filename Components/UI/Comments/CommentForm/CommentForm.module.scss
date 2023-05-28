@@ -25,6 +25,7 @@
       cursor: pointer;
       color: $color-white !important;
       transition: all 0.3s;
+      font-size: $default-font-size;
 
       &:hover {
         background-color: $color-quaternary-dark;
