@@ -13,7 +13,7 @@ export async function getStaticProps() {
   };
 }
 
-const contact = ({ globalData }) => {
+const Contact = ({ globalData }) => {
   const [messageStatus, setMessageStatus] = useState();
 
   const sendMessage = async (e) => {
@@ -97,4 +97,4 @@ const contact = ({ globalData }) => {
   );
 };
 
-export default contact;
+export default Contact;
