@@ -27,6 +27,7 @@ const About = ({ globalData, aboutData }) => (
               src={aboutData.Photo.data.attributes.url}
               fill
               style={{ objectFit: "cover" }}
+              alt={aboutData.Photo.data.attributes.alternativeText}
             />
           </div>
         </div>
