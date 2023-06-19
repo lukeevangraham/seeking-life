@@ -27,8 +27,8 @@ export default async (req, res) => {
     transporter.sendMail(
       {
         from: '"SEEKINGLIFE.BLOG" <donotreply@seekinglife.blog>',
-        //   to: "geoff@rbcpc.org, luke@grahamwebworks.com",
-        to: "luke@grahamwebworks.com",
+          to: "geoff@rbcpc.org, luke@grahamwebworks.com",
+        // to: "luke@grahamwebworks.com",
         subject: "Contact Form Submission from seekinglife.blog",
         text: `${req.body.name} (${req.body.email}) just sent this message via the contact form at seekinglife.blog:
           
