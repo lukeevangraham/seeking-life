@@ -14,9 +14,6 @@ const CommentForm = ({ postId, updateComments }) => {
     setCommentStatus(1);
 
     const res = await axios.post(`${getStrapiURL("/comments")}`, {
-      headers: {
-        Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
-      },
       data: {
         Name: e.target.name.value,
         Email: e.target.email.value,
@@ -32,7 +29,22 @@ const CommentForm = ({ postId, updateComments }) => {
 
     updateComments(afterBlog.data.data.attributes.sl_comments.data);
 
-    afterBlog.status === 200 ? setCommentStatus(200) : null;
+    result.status === 200 ? setCommentStatus(200) : null;
+
+    const emailToGeoffRes = await fetch("/api/comment", {
+      body: JSON.stringify({
+        Name: e.target.name.value,
+        Email: e.target.email.value,
+        Message: e.target.message.value,
+        sl_blog: postId,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    const emailToGeoffResult = await emailToGeoffRes.json();
   };
 
   const postRes = async (commentInfo) => {
