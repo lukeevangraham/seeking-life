@@ -7,7 +7,7 @@ const Footer = () => (
         <div className={classes.Footer__Inner__Brand}>Seeking Life</div>
       </div>
       <div className={classes.Footer__Inner__Social}>
-        <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
+        <a href="https://www.facebook.com/geesskay1" target="_blank" rel="noreferrer">
           <svg>
             {/* <use xlinkHref="../../images/sprite.svg#icon-facebook" /> */}
             <use xlinkHref="../../images/sprite.svg#icon-facebook" />
