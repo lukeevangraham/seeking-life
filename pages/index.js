@@ -7,6 +7,7 @@ import BlogPost from "../Components/Blog/BlogPost/BlogPost";
 import Comments from "@/Components/UI/Comments/Comments";
 import CommentForm from "@/Components/UI/Comments/CommentForm/CommentForm";
 import Pagination from "@/Components/UI/Pagination/Pagination";
+import ContactForm from "@/Components/ContactForm/ContactForm";
 
 import classes from "./index.module.scss";
 
@@ -48,6 +49,7 @@ export default function Home({ globalData, pageData, blogPostsData }) {
         {pageData.attributes.sections.map((section, index) => (
           <Sections sectionData={section} key={index} />
         ))}
+        <ContactForm globalData={globalData} />
         <div className="row">
           <section className={classes.Home__Hero}>Hero</section>
           <section className={classes.Home__Welcome}>Welcome</section>

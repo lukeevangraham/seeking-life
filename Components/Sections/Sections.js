@@ -1,9 +1,13 @@
 import Hero from "./Hero/Hero";
 import ImageBesideText from "./ImageBesideText/ImageBesideText";
+import Quote from "./Quote/Quote";
+import Collage from "./Collage/Collage";
 
 const sectionComponents = {
   "section.hero": Hero,
   "section.image-beside-text": ImageBesideText,
+  "section.quote": Quote,
+  "section.collage": Collage
 };
 
 // DISPLAY A SECTION INDIVIDUALLY
