@@ -50,7 +50,7 @@ export default function Home({ globalData, pageData, blogPostsData }) {
           <Sections sectionData={section} key={index} />
         ))}
         <ContactForm globalData={globalData} />
-        <div className="row">
+        {/* <div className="row">
           <section className={classes.Home__Hero}>Hero</section>
           <section className={classes.Home__Welcome}>Welcome</section>
           <section className={classes.Home__Testimonial}>Testimonial</section>
@@ -58,7 +58,7 @@ export default function Home({ globalData, pageData, blogPostsData }) {
           <section className={classes.Home__Quote}>Quote</section>
           <section className={classes.Home__CTA}>CTA</section>
           <section className={classes.Home__Contact}>Contact</section>
-        </div>
+        </div> */}
       </main>
     </Layout>
   );
