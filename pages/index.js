@@ -59,6 +59,7 @@ export default function Home({ globalData, pageData, blogPostsData }) {
           <section className={classes.Home__CTA}>CTA</section>
           <section className={classes.Home__Contact}>Contact</section>
         </div> */}
+        <div className="u-margin-medium" />
       </main>
     </Layout>
   );
