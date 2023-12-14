@@ -2,8 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { fetchAPI, getGlobalInfo, getBlogPostsInfo } from "@/lib/api";
 import Layout from "@/Components/Layout/Layout";
-import Sections from "@/Components/Sections/Sections";
-import BlogPost from "../Components/Blog/BlogPost/BlogPost";
+import BlogPost from "../../Components/Blog/BlogPost/BlogPost";
 import Comments from "@/Components/UI/Comments/Comments";
 import CommentForm from "@/Components/UI/Comments/CommentForm/CommentForm";
 import Pagination from "@/Components/UI/Pagination/Pagination";
@@ -13,7 +12,7 @@ import classes from "./index.module.scss";
 export async function getStaticProps() {
   const [globalData, pageData, blogPostsData] = await Promise.all([
     getGlobalInfo(),
-    fetchAPI(`/sl-home?populate[sections][populate]=*`),
+    fetchAPI(`/sl-home?populate=*`),
     getBlogPostsInfo(),
   ]);
   return {
@@ -44,19 +43,25 @@ export default function Home({ globalData, pageData, blogPostsData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={classes.Home}>
-        {console.log("HERE: ", pageData)}
-        {pageData.attributes.sections.map((section, index) => (
-          <Sections sectionData={section} key={index} />
-        ))}
-        <div className="row">
-          <section className={classes.Home__Hero}>Hero</section>
-          <section className={classes.Home__Welcome}>Welcome</section>
-          <section className={classes.Home__Testimonial}>Testimonial</section>
-          <section className={classes.Home__Photos}>Photos</section>
-          <section className={classes.Home__Quote}>Quote</section>
-          <section className={classes.Home__CTA}>CTA</section>
-          <section className={classes.Home__Contact}>Contact</section>
+        <div className={classes.Home__Image}>
+          <Image
+            src={pageData.attributes.TopImage.data.attributes.url}
+            fill
+            alt={pageData.attributes.TopImage.data.attributes.alternativeText}
+            style={{ objectFit: "cover", objectPosition: "center" }}
+            priority
+            // loader={() => pageData.attributes.TopImage.data.attributes.url}
+          />
         </div>
+
+        <section className="row u-margin-medium">
+          {blogPostsData.data.map((post) => (
+            <BlogPost post={post} key={post.id} />
+          ))}
+        </section>
+        <section className="row u-margin-medium">
+          <Pagination pageData={blogPostsData.meta.pagination} />
+        </section>
       </main>
     </Layout>
   );
