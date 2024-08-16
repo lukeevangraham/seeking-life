@@ -10,8 +10,9 @@ const Hero = ({ data }) => (
       <h2>{data.subheading}</h2>
     </div>
     <div className={classes.Hero__MainImage}>
+      {console.log("I: ", data.mainImage.data[0])}
       <Image
-        src={data.mainImage.data.attributes.url}
+        src={data.mainImage.data[0].attributes.url}
         style={{ objectFit: "cover" }}
         fill
       />
